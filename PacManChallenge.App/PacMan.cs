@@ -14,6 +14,7 @@ namespace PacManChallenge.App
             Points = 5000;
             NewLifeCounter = Points;
             NewLivesGained = 0;
+            isAlive = true;
         }
 
         public int Lives { get; set; }
@@ -21,6 +22,7 @@ namespace PacManChallenge.App
         public int NewLifeCounter { get; set; }
         public int NewLivesGained { get; set; }
         public int VulnerableGhostsEaten = 0;
+        public bool isAlive { get; set; }
 
         public void Eat(string item)
         {
@@ -66,6 +68,11 @@ namespace PacManChallenge.App
 
             Points += value;
             NewLifeCounter += value;
+
+            if (Lives < 0)
+            {
+                isAlive = false;
+            }
 
             if (NewLifeCounter > 10000)
             {
