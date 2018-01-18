@@ -21,7 +21,10 @@ namespace PacManChallenge.App
 
             foreach (var element in elements)
             {
-                pacMan.Eat(element);
+                if (pacMan.isAlive)
+                    pacMan.Eat(element);
+                else
+                    break;
             }
 
             Console.WriteLine($"Total points:{pacMan.Points} Lives gained:{pacMan.NewLivesGained}");
